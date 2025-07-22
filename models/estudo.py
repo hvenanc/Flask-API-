@@ -1,5 +1,4 @@
 import uuid
-from datetime import datetime
 from models.enuns import StatusEstudo
 
 class Estudo:
