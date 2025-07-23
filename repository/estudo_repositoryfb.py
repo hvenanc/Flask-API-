@@ -1,4 +1,3 @@
-import json
 from datetime import datetime
 from models.estudo import Estudo
 from models.enuns import StatusEstudo
