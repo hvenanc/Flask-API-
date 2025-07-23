@@ -18,7 +18,7 @@ def login():
     dados = request.json
     usuario = service.autenticar(dados)
     if not usuario:
-        return jsonify({"erro: Credenciais inválidas"}), 401
+        return jsonify({"erro": "Credenciais inválidas"}), 401
     
-    token = create_access_token(identity = usuario["id"])
+    token = create_access_token(identity = usuario.id)
     return jsonify({"token": token}), 200

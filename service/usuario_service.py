@@ -1,5 +1,5 @@
 from repository.usuario_repository import UsuarioRepositoty
-
+from models.usuario import Usuario
 
 class UsuarioService:
 
@@ -17,7 +17,8 @@ class UsuarioService:
     
 
     def autenticar(self, dados):
-        usuario = self.usuario_repository.buscar_por_email(dados["email"])
-        if usuario and usuario["senha"] == dados["senha"]:
+        busca = self.usuario_repository.buscar_por_email(dados["email"])
+        usuario = Usuario.to_user(busca)
+        if usuario and usuario.check_senha(dados["senha"]):
             return usuario
         return None

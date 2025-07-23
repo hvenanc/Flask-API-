@@ -1,3 +1,4 @@
+from werkzeug.security import generate_password_hash
 from config.firebase_config import db
 from models.usuario import Usuario
 
@@ -13,7 +14,7 @@ class UsuarioRepositoty:
             id = doc.id,
             nome = nome,
             email = email,
-            senha = senha
+            senha = generate_password_hash(senha)
         )
         doc.set(usuario.to_dict())
         return usuario
