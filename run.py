@@ -10,4 +10,4 @@ app.config["JWT_SECRET_KEY"] = os.getenv("SECRET_API")
 jwt = JWTManager(app)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=0000)
