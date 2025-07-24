@@ -5,7 +5,6 @@ from service.estudo_service import EstudoService
 estudo_bp = Blueprint("estudos", __name__)
 service = EstudoService()
 
-@estudo_bp.route("/", methods=["GET"])
 @jwt_required()
 def listar_todos():
     usuario_id = get_jwt_identity()
